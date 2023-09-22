@@ -10,7 +10,7 @@ const TableWithShadowDom = () => {
   const [current, setCurrent] = React.useState(0);
 
   useEffect(() => {
-    setRecords(records0.slice(0, 100));
+    setRecords(records0.slice(0, 700));
   }, []);
 
   useEffect(() => {
@@ -26,10 +26,10 @@ const TableWithShadowDom = () => {
           <button onClick={() => {
             window.startTime = performance.now();
             if (current === 0) {
-              setRecords(records1.slice(0, 100));
+              setRecords(records1.slice(0, 700));
               setCurrent(1);
             } else {
-              setRecords(records0.slice(0, 100));
+              setRecords(records0.slice(0, 700));
               setCurrent(0);
             }
           }}>Change all records</button>
@@ -39,7 +39,7 @@ const TableWithShadowDom = () => {
         <tbody>
           {records.map(record => (
             <table-row key={record.id}>
-              <td slot="patientName" width="200px" width="100px">{record.patientName}</td>
+              <td slot="patientName" width="200px">{record.patientName}</td>
               <td slot="age" width="50px" >{record.age}</td>
               <td slot="gender" width="60px">{record.gender}</td>
               <td slot="diagnosis" width="100px">{record.diagnosis}</td>
