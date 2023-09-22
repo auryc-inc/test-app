@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import TableReactctVirtualized from "./TableReactctVirtualized";
 import JustTablePlain from "./JustTablePlain";
+import TableWithShadowDom from "./TableWithShadowDom";
 
 // Sample components
 function Home() {
@@ -31,6 +32,9 @@ function App() {
             <li>
               <Link to="/2">JustTablePlain</Link>
             </li>
+            <li>
+              <Link to="/3">ShadowDom Tbale</Link>
+            </li>
           </ul>
         </nav>
 
@@ -38,6 +42,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/1" element={<TableReactctVirtualized />} />
           <Route path="/2" element={<JustTablePlain />} />
+          <Route path="/3" element={<TableWithShadowDom />} />
         </Routes>
       </div>
     </Router>

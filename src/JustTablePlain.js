@@ -13,12 +13,18 @@ const JustTablePlain = () => {
     setRecords(records0);
   }, []);
 
+  useEffect(() => {
+    const endTime = performance.now();
+    console.log(`>>> diffe`, endTime - window.startTime); 
+  });
+
   return (
     <div style={{ height: '70vh', width: '100%' }}>
       <div style={{ padding: '1em', border: '1px solid red' }}>
         # of records: {records.length}
         <div>
           <button onClick={() => {
+            window.startTime = performance.now();
             if (current === 0) {
               setRecords(records1);
               setCurrent(1);
