@@ -27,13 +27,13 @@ function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/1">TableReactctVirtualized</Link>
+              <Link to="1">TableReactctVirtualized</Link>
             </li>
             <li>
-              <Link to="/2">JustTablePlain</Link>
+              <Link to="2">JustTablePlain</Link>
             </li>
             <li>
-              <Link to="/3">ShadowDom Tbale</Link>
+              <Link to="3">ShadowDom Tbale</Link>
             </li>
           </ul>
         </nav>
