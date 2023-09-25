@@ -1,21 +1,21 @@
 import React, { useEffect } from 'react';
-import { Table, Column, AutoSizer } from 'react-virtualized';
 import 'react-virtualized/styles.css';
 import records0 from './medicalRecords.json';
 import records1 from './medicalRecords1.json';
 
 
+const NUM_ROWS = 100;
 const TableWithShadowDom = () => {
   const [records, setRecords] = React.useState([]);
   const [current, setCurrent] = React.useState(0);
 
   useEffect(() => {
-    setRecords(records0.slice(0, 700));
+    setRecords(records0.slice(0, NUM_ROWS));
   }, []);
 
   useEffect(() => {
     const endTime = performance.now();
-    console.log(`>>> diffe`, endTime - window.startTime); 
+    console.log(`>>> diffe`, endTime - window.startTime);
   });
 
   return (
@@ -26,37 +26,64 @@ const TableWithShadowDom = () => {
           <button onClick={() => {
             window.startTime = performance.now();
             if (current === 0) {
-              setRecords(records1.slice(0, 700));
+              setRecords(records1.slice(0, NUM_ROWS));
               setCurrent(1);
             } else {
-              setRecords(records0.slice(0, 700));
+              setRecords(records0.slice(0, NUM_ROWS));
               setCurrent(0);
             }
           }}>Change all records</button>
         </div>
       </div>
-      <table>
-        <tbody>
-          {records.map(record => (
-            <table-row key={record.id}>
-              <td slot="patientName" width="200px">{record.patientName}</td>
-              <td slot="age" width="50px" >{record.age}</td>
-              <td slot="gender" width="60px">{record.gender}</td>
-              <td slot="diagnosis" width="100px">{record.diagnosis}</td>
-              <td slot="medication" width="100px">{record.medication}</td>
-              <td slot="doctor" width="100px">{record.doctor}</td>
-              <td slot="admissionDate" width="100px">{record.admissionDate}</td>
-              <td slot="dischargeDate" width="100px">{record.dischargeDate}</td>
-              <td slot="roomNumber" width="100px">{record.roomNumber}</td>
-              <td slot="allergies" width="100px">{record.allergies}</td>
-              <td slot="bloodType" width="100px">{record.bloodType}</td>
-              <td slot="insuranceProvider" width="100px">{record.insuranceProvider}</td>
-              <td slot="emergencyContact" width="100px">{record.emergencyContact}</td>
-              <td slot="notes" width="100px">{record.notes}</td>
-            </table-row>
-          ))}
-        </tbody>
-      </table>
+
+      <table-component>
+        {records.map((record, i) => (
+          <table-row key={i}>
+            <table-cell>
+              {record.patientName}
+            </table-cell>
+            <table-cell>
+              {record.age}
+            </table-cell>
+            <table-cell>
+              {record.gender}
+            </table-cell>
+            <table-cell>
+              {record.diagnosis}
+            </table-cell>
+            <table-cell>
+              {record.medication}
+            </table-cell>
+            <table-cell>
+              {record.doctor}
+            </table-cell>
+            <table-cell>
+              {record.admissionDate}
+            </table-cell>
+            <table-cell>
+              {record.dischargeDate}
+            </table-cell>
+            <table-cell>
+              {record.roomNumber}
+            </table-cell>
+            <table-cell>
+              {record.allergies}
+            </table-cell>
+            <table-cell>
+              {record.bloodType}
+            </table-cell>
+            <table-cell>
+              {record.insuranceProvider}
+            </table-cell>
+            <table-cell>
+              {record.emergencyContact}
+            </table-cell>
+            <table-cell>
+              {record.notes}
+            </table-cell>
+          </table-row>
+        ))}
+      </table-component>
     </div >
   );
 }

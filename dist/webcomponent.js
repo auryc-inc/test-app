@@ -1,39 +1,73 @@
-class TableRow extends HTMLElement {
+class TableComponent extends HTMLElement {
     constructor() {
         super();
-        let style = document.createElement("style");
-
-        style.textContent = `
-            tr {
-            }
-            td {
-                padding: 0.5em;
-                border: 1px solid black;
-            }   
-        `;
-        const shadowRoot = this.attachShadow({ mode: 'open' });
-        shadowRoot.appendChild(style);
-        shadowRoot.innerHTML = `
-            <tr>
-            <slot name="patientName"></slot>
-            <slot name="age"></slot>
-            <slot name="gender"></slot>
-            <slot name="diagnosis"></slot>
-            <slot name="medication"></slot>
-            <slot name="doctor"></slot>
-            <slot name="admissionDate"></slot>
-            <slot name="dischargeDate"></slot>
-            <slot name="roomNumber"></slot>
-            <slot name="allergies"></slot>
-            <slot name="bloodType"></slot>
-            <slot name="insuranceProvider"></slot>
-            <slot name="emergencyContact"></slot>
-            <slot name="notes"></slot>
-        </tr >
-            `
+        this.attachShadow({ mode: 'open' });
+        this.render();
     }
 
+    render() {
+        this.shadowRoot.innerHTML = `
+        ${window.TableStyle}
+        <table>
+          <slot></slot>
+        </table>
+      `;
+    }
 }
 
+customElements.define('table-component', TableComponent);
 
-window.customElements.define('table-row', TableRow);
+
+////////////////////////////////////////////////
+
+
+class TableRowComponent extends HTMLElement {
+    constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+        this.render();
+    }
+
+    render() {
+        this.shadowRoot.innerHTML = `
+        ${window.TableRowStyle}
+        </style>
+        <div>
+          <slot></slot>
+        </div>
+      `;
+    }
+}
+
+customElements.define('table-row', TableRowComponent);
+
+////////////////////////////////////////////////
+
+class TableCellComponent extends HTMLElement {
+    constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+        this.render();
+    }
+
+    render() {
+        this.shadowRoot.innerHTML = `
+       ${window.TableColStyle}
+        <style>
+        :host {
+            display: inline-block;
+            min-width: 100px;
+            max-width: 100px;
+            padding: 0.5em;
+        }
+        </style>
+        <td>
+          <slot></slot>
+        </td>
+      `;
+    }
+}
+
+customElements.define('table-cell', TableCellComponent);
+
+
