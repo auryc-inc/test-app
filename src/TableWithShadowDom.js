@@ -4,7 +4,7 @@ import records0 from './medicalRecords.json';
 import records1 from './medicalRecords1.json';
 
 
-const NUM_ROWS = 100;
+const NUM_ROWS = 20;
 const TableWithShadowDom = () => {
   const [records, setRecords] = React.useState([]);
   const [current, setCurrent] = React.useState(0);
