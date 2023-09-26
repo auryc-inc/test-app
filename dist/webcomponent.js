@@ -1,13 +1,15 @@
 class TableComponent extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({ mode: 'open' });
+        const shadow = this.attachShadow({ mode: 'open' });
+        const sheet = new CSSStyleSheet();
+        sheet.replaceSync(window.TableStyle);
+        shadow.adoptedStyleSheets = [sheet];
         this.render();
     }
 
     render() {
         this.shadowRoot.innerHTML = `
-        ${window.TableStyle}
         <table>
           <slot></slot>
         </table>
@@ -24,13 +26,15 @@ customElements.define('table-component', TableComponent);
 class TableRowComponent extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({ mode: 'open' });
+        const shadow = this.attachShadow({ mode: 'open' });
+        const sheet = new CSSStyleSheet();
+        sheet.replaceSync(window.TableRowStyle);
+        shadow.adoptedStyleSheets = [sheet];
         this.render();
     }
 
     render() {
         this.shadowRoot.innerHTML = `
-        ${window.TableRowStyle}
         </style>
         <div>
           <slot></slot>
@@ -45,14 +49,16 @@ customElements.define('table-row', TableRowComponent);
 
 class TableCellComponent extends HTMLElement {
     constructor() {
-        super();
-        this.attachShadow({ mode: 'open' });
-        this.render();
+      super();
+      const shadow = this.attachShadow({ mode: 'open' });
+      const sheet = new CSSStyleSheet();
+      sheet.replaceSync(window.TableColStyle);
+      shadow.adoptedStyleSheets = [sheet];
+      this.render();
     }
 
     render() {
         this.shadowRoot.innerHTML = `
-       ${window.TableColStyle}
         <style>
         :host {
             display: inline-block;

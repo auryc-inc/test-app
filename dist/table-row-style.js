@@ -1,4 +1,4 @@
-window.TableRowStyle = `<style data-adopted-style-ar=""> :host { display: inherit; }.container, .container-fluid, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm { --uui-gutter-x: 1.5rem; --uui-gutter-y: 0; width: 100%; padding-right: calc(var(--uui-gutter-x) * 0.5); padding-left: calc(var(--uui-gutter-x) * 0.5); margin-right: auto; margin-left: auto; box-sizing: border-box; }@media (min-width: 576px) {
+window.TableRowStyle = ` :host { display: inherit; }.container, .container-fluid, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm { --uui-gutter-x: 1.5rem; --uui-gutter-y: 0; width: 100%; padding-right: calc(var(--uui-gutter-x) * 0.5); padding-left: calc(var(--uui-gutter-x) * 0.5); margin-right: auto; margin-left: auto; box-sizing: border-box; }@media (min-width: 576px) {
   .container-sm, .container { max-width: 540px; }
 }@media (min-width: 768px) {
   .container-md, .container-sm, .container { max-width: 720px; }
@@ -143,5 +143,5 @@ window.TableRowStyle = `<style data-adopted-style-ar=""> :host { display: inheri
   .offset-xxl-9 { margin-left: 75%; }
   .offset-xxl-10 { margin-left: 83.3333%; }
   .offset-xxl-11 { margin-left: 91.6667%; }
-} </style>
+} 
 `;
